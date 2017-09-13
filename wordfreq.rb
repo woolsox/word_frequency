@@ -24,8 +24,8 @@ class Wordfreq
   end
 
   def top_words(number)
-    bad_words = STOP_WORDS.to_s
-    @document.remove(bad_words)
+    bad_words = @document.split(' ').delete_if {|word| STOP_WORDS.include?(word)}
+    # p @document.methods.sort
   end
 
   def print_report
