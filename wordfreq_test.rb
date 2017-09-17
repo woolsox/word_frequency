@@ -41,24 +41,24 @@ class WordfreqTest < Minitest::Test
       ["states", 20], ["united", 14], ["day", 8], ["shall", 7]
     ], top_words
   end
-#
-#   def test_report
-#     expected_output = <<EOF
-#     her | 33 *********************************
-#     all | 12 ************
-#   which | 12 ************
-#    they | 7  *******
-#   their | 7  *******
-#     she | 7  *******
-#    this | 6  ******
-#    them | 6  ******
-#   women | 6  ******
-#  rights | 6  ******
-# EOF
-#
-#     wf = Wordfreq.new fullpath('seneca_falls.txt')
-#     assert_output expected_output do
-#       wf.print_report
-#     end
-#   end
+
+  def test_report
+    expected_output = <<EOF
+    her | 33 *********************************
+    all | 12 ************
+  which | 12 ************
+   they | 7  *******
+  their | 7  *******
+    she | 7  *******
+   this | 6  ******
+   them | 6  ******
+  women | 6  ******
+ rights | 6  ******
+EOF
+
+    wf = Wordfreq.new fullpath('seneca_falls.txt')
+    assert_output expected_output do
+      wf.print_report
+    end
+  end
 end

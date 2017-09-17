@@ -24,11 +24,14 @@ class Wordfreq
   end
 
   def top_words(number)
-    bad_words = @document.split(' ').delete_if {|word| STOP_WORDS.include?(word)}
-    # p @document.methods.sort
+    words = frequencies.delete_if {|key| STOP_WORDS.include? key}
+    words.sort_by {|_key, value| value}.reverse.first(number)
   end
 
   def print_report
+    top_words(10).each do |key, value|
+      puts "#{key} | #{value} " + "*" * value
+    end
   end
 end
 
